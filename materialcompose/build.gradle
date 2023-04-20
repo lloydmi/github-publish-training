@@ -80,3 +80,10 @@ dependencies {
     // Material
     implementation 'androidx.compose.material3:material3:1.0.1'
 }
+
+task printEnvVar {
+    doLast {
+        String envVarValue = System.getenv("USERNAME")
+        println "The value of USERNAME is: " + envVarValue
+    }
+}
