@@ -57,7 +57,7 @@ publishing {
             url = uri("https://maven.pkg.github.com/lloydmi/github-publish-training")
             credentials {
                 username = githubProperties['gpr.user'] //System.getenv("USERNAME")
-                password = System.getenv("GITHUB_TOKEN")
+                password = System.getenv("PUBLISH_TOKEN")
             }
         }
     }
