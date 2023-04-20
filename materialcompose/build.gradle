@@ -35,6 +35,9 @@ android {
     }
 }
 
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
 publishing {
     publications {
         bar(MavenPublication) {
@@ -53,7 +56,7 @@ publishing {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/lloydmi/github-publish-training")
             credentials {
-                username = "lloydmi" //System.getenv("USERNAME")
+                username = githubProperties['gpr.user'] //System.getenv("USERNAME")
                 password = System.getenv("GITHUB_TOKEN")
             }
         }
@@ -79,11 +82,4 @@ dependencies {
 
     // Material
     implementation 'androidx.compose.material3:material3:1.0.1'
-}
-
-task printEnvVar {
-    doLast {
-        String envVarValue = System.getenv("USERNAME")
-        println "The value of USERNAME is: " + envVarValue
-    }
 }
