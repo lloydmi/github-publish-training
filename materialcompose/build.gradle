@@ -42,7 +42,7 @@ publishing {
             groupId 'com.lss.android'
             // The artifactId can be whatever you want it to be
             artifactId 'material-compose-library'
-            version getVersionName()
+            version getVersion()
             // The information here, must match the name of module, because that is how the .aar file
             // will get build.
             artifact("$buildDir/outputs/aar/materialcompose-release.aar")
