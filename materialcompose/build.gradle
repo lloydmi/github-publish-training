@@ -3,7 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
-def getVersion = { -> return "0.0.1" }
+def getVersion = { -> return "0.0.2" }
 
 android {
     namespace 'com.lss.materialcompose'
