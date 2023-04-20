@@ -35,6 +35,31 @@ android {
     }
 }
 
+publishing {
+    publications {
+        bar(MavenPublication) {
+            // The groupId can be whatever you want it to be
+            groupId 'com.lss.android'
+            // The artifactId can be whatever you want it to be
+            artifactId 'material-compose-library'
+            version getVersionName()
+            // The information here, must match the name of module, because that is how the .aar file
+            // will get build.
+            artifact("$buildDir/outputs/aar/materialcompose-release.aar")
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/lloydmi/github-publish-training")
+            credentials {
+                username = System.getenv("USERNAME")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
 dependencies {
     def composeVersion = "1.5.0-alpha02"
 
