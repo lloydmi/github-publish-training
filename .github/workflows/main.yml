@@ -32,5 +32,6 @@ jobs:
         # See more details: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
       run: |
+        echo $USERNAME
         ./gradlew assembleRelease
         ./gradlew publish
